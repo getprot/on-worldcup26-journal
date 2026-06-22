@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专题·世界杯指南 | on-worldcup26.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f6fafc;
+      color: #1f3a3f;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 1.5rem 0 2.5rem;
+    }
+
+    /* 首页横幅 hero */
+    .hero {
+      background: linear-gradient(135deg, #0d4f5a 0%, #1b7a82 60%, #329397 100%);
+      border-radius: 2rem 2rem 1.5rem 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      color: #e5f4f0;
+      box-shadow: 0 8px 24px rgba(13, 79, 90, 0.18);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      opacity: 0.92;
+      background: rgba(255,255,255,0.08);
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* 背景说明卡片 */
+    .bg-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 40, 45, 0.06);
+      border-left: 6px solid #2d8f96;
+      transition: box-shadow 0.2s;
+    }
+
+    .bg-card p {
+      font-size: 1.05rem;
+      color: #1e3d41;
+    }
+
+    .bg-card .label {
+      display: inline-block;
+      background: #d9eef0;
+      color: #0b535b;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 卡片网格 — 三栏自然介绍 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0 2.2rem;
+    }
+
+    @media (min-width: 600px) {
+      .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card-item {
+      background: #ffffff;
+      border-radius: 1.4rem;
+      padding: 1.8rem 1.4rem;
+      box-shadow: 0 4px 10px rgba(13, 79, 90, 0.04);
+      border: 1px solid #d7eaed;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .card-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(13, 79, 90, 0.10);
+      border-color: #9acfd4;
+    }
+
+    .card-item .icon {
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .card-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #155860;
+    }
+
+    .card-item p {
+      color: #2a4e54;
+      font-size: 0.95rem;
+    }
+
+    /* 特色亮点小标签 */
+    .tag {
+      display: inline-block;
+      background: #e5f3f2;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #14646c;
+      margin-right: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* FAQ 摘要（简洁） */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 40, 45, 0.04);
+      border-top: 4px solid #2d8f96;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #10555f;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-row {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #e4f0f0;
+    }
+
+    .faq-row:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1b5a62;
+    }
+
+    .faq-a {
+      color: #2b5b61;
+      margin-top: 0.15rem;
+      font-size: 0.95rem;
+    }
+
+    /* 页尾访问提示 */
+    .footer-note {
+      background: #e6f2f4;
+      border-radius: 2rem;
+      padding: 1.4rem 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      color: #1c535b;
+      font-size: 0.95rem;
+      border: 1px solid #c4dfe2;
+    }
+
+    .footer-note a {
+      color: #0c6b75;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid #73bbc3;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: #043b42;
+      border-bottom-color: #2c7b83;
+    }
+
+    .footer-note .small-meta {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      opacity: 0.75;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .bg-card, .faq-mini {
+        padding: 1.4rem 1.2rem;
+      }
+      .card-item {
+        padding: 1.4rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 横幅 -->
+  <div class="hero">
+    <h1>⚽ 专题 · 世界杯</h1>
+    <div class="sub">赛事信息 · 赛程梳理 · 站点导航</div>
+  </div>
+
+  <!-- 背景说明卡片 -->
+  <div class="bg-card">
+    <span class="label">📌 关于本站</span>
+    <p><strong>on-worldcup26.com</strong> 是一个专注于世界杯相关资讯整理的站点。内容涵盖赛程速览、历史纪录、球队动态与观赛指引。站点不隶属于任何官方组织，仅以信息汇集与呈现为主要目的，力求为浏览者提供清晰、可靠的内容参考。所有信息均以公开资料为基础，并定期校核更新。</p>
+  </div>
+
+  <!-- 三段自然介绍（网格卡片） -->
+  <div class="grid-cards">
+    <div class="card-item">
+      <span class="icon">🗓️</span>
+      <h3>赛程与场馆</h3>
+      <p>汇集各阶段比赛日程及举办城市信息，从小组赛到决赛阶段均以简洁列表呈现。同时整理场馆容量、交通区位等实用参考，方便规划观赛行程。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">小组赛</span>
+        <span class="tag">淘汰赛</span>
+        <span class="tag">主办城市</span>
+      </div>
+    </div>
+
+    <div class="card-item">
+      <span class="icon">📋</span>
+      <h3>球队与纪录</h3>
+      <p>覆盖参赛队伍概况、历史表现及关键数据。每届赛事都留下独特的故事，我们尝试用平实的视角整理那些值得被关注的队伍轨迹与数字。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">参赛队</span>
+        <span class="tag">经典对决</span>
+        <span class="tag">数据统计</span>
+      </div>
+    </div>
+
+    <div class="card-item">
+      <span class="icon">🔍</span>
+      <h3>资讯与导航</h3>
+      <p>站内提供分类索引，方便按需查找特定内容。同时整合外部可靠来源作为延伸阅读，帮助你更全面地了解 <a href="https://on-worldcup26.com" style="color: #0d6b74; font-weight: 500; text-decoration: underline;">世界杯</a> 及相关动态。</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="tag">索引</span>
+        <span class="tag">延伸阅读</span>
+        <span class="tag">常见问题</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要（可信说明角度） -->
+  <div class="faq-mini">
+    <h2>❓ 常见疑问 · 站点说明</h2>
+    <div class="faq-row">
+      <div class="faq-q">› 这个网站是官方渠道吗？</div>
+      <div class="faq-a">不是。本站是一个独立的非官方信息整理页面，所有内容仅供个人参考与了解，不代任何国际足联或组委会立场。</div>
+    </div>
+    <div class="faq-row">
+      <div class="faq-q">› 信息更新频率如何？</div>
+      <div class="faq-a">常规内容每两周核校一次，赛程或重大变动会在获知后尽快同步。我们更倾向于保证准确，而非盲目追求速度。</div>
+    </div>
+    <div class="faq-row">
+      <div class="faq-q">› 我可以在哪里提出建议或纠错？</div>
+      <div class="faq-a">目前主要通过站内页面底部联系方式（暂未开放）。你也可以留意后续可能新增的反馈入口。我们欢迎认真的指正。</div>
+    </div>
+  </div>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-note">
+    <p>📬 若希望查阅更完整的赛程、球队数据及深度内容，可直接前往 <a href="https://on-worldcup26.com">世界杯</a> 专题页，内容持续充实中。</p>
+    <span class="small-meta">— 以清晰、克制的方式呈现 · 2025</span>
+  </div>
+
+</div>
+</body>
+</html>
